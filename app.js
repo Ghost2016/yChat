@@ -30,9 +30,6 @@ io.sockets.on('connection', socket => {
         socket.username = username;
         users.push(username);
         socket.emit('loginSucceed', username);
-        // io.emit('system', 'login', username, users.length);
-        // socket.broadcast.emit('system', 'login', socket.username, users.length);
-        //or
         io.sockets.emit('system', 'login', username, users.length);
     });
     socket.on('disconnect', () => {
