@@ -1,0 +1,340 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+p,
+blockquote,
+th,
+td {
+    margin: 0;
+    padding: 0;
+    -webkit-transform: translateZ(0);
+    width: 100%
+}
+
+body {
+    background: #f1f1f1;
+    color: #555;
+    font-family: "微软雅黑", Verdana, Arial, Helvetica, sans-serif;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden
+}
+
+body::-webkit-scrollbar {
+    width: 0;
+    height: 0
+}
+
+td,
+th,
+caption {
+    font-size: 14px;
+    outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+    font-size: 100%;
+    width: 100%
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+    font-style: normal;
+    font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    outline: none;
+}
+
+a,
+button,
+input {
+    -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+}
+
+input[type=search]::-webkit-search-cancel-button {
+    display: none
+}
+
+img {
+    border: none;
+    max-height: 100%;
+    max-width: 100%;
+    vertical-align: middle
+}
+
+ol,
+ul,
+li {
+    list-style: none;
+    position: relative;
+    width: 100%
+}
+
+input,
+textarea,
+select,
+button {
+    font: 14px Verdana, Helvetica, Arial, sans-serif;
+}
+
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%
+}
+
+html {
+    overflow-y: hidden;
+    height: 100%;
+    font-size: 14px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    width: 20%;
+    -webkit-appearance: button;
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    text-align: center;
+    outline: none;
+}
+
+input[type="button"] {
+    width: 20%;
+}
+
+#loginWapper {
+    background: skyblue;
+    background-size: contain;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.button-like {
+    background: #09f;
+    transition: all .35s linear;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.button-like:hover {
+    color: #09f;
+    background: #fff;
+}
+
+#loginWapper>div {
+    display: flex;
+    width: 50%;
+}
+
+#loginWapper>div>input:nth-child(1) {
+    flex: 1;
+}
+
+#loginWapper>div>a:nth-child(2) {
+    padding: 5px 15px;
+    margin-left: 10px;
+    height: 20px;
+}
+
+#tips {
+    margin: 20px 0;
+}
+
+#contentWapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: skyblue;
+    background-size: contain;
+}
+
+#banner {
+    display: flex;
+    height: 10%;
+}
+
+#banner h1 {
+    flex: 1;
+    text-align: center;
+    margin: auto 0;
+}
+
+#banner span {
+    flex: 1;
+    text-align: center;
+}
+
+#status {
+    margin: auto;
+}
+
+#history {
+    flex: 1;
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: scroll;
+}
+
+.msg-item {
+    max-width: 80%;
+    position: relative;
+    margin: 10px 0;
+}
+
+.systemmsg {
+    text-align: center;
+    padding: 8px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.mymsg {
+    align-self: flex-start;
+    text-align: left;
+}
+
+.othermsg {
+    align-self: flex-end;
+    text-align: right;
+}
+
+#controls {
+    display: flex;
+    height: 30%;
+}
+
+#messageInput {
+    width: 80%;
+}
+
+#sendBtn {
+    align-self: flex-end;
+    margin-left: 30px;
+    padding: 5px 15px;
+}
+
+#clearBtn {
+    margin: 5px 10px;
+    padding: 5px 15px;
+}
+
+#items {
+    margin: 5px;
+}
+
+.msg-content {
+    border-radius: 5%;
+    display: inline-block;
+    padding: 10px;
+    background: skyblue;
+    border-radius: 5px;
+    display: inline-block;
+    margin-left: 41px;
+    word-break: break-all;
+}
+
+.mymsg .msg-content::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 26px;
+    left: 27px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: skyblue skyblue transparent transparent;
+}
+
+.mymsg .user-icon {
+    position: absolute;
+    top: 21px;
+    left: 5px;
+}
+
+.msg-time {
+    display: block;
+    margin: 0 40px;
+}
+
+.mymsg .msg-content {
+    background: skyblue;
+    border-radius: 5px;
+    margin-left: 41px;
+}
+
+.othermsg .user-icon {
+    position: absolute;
+    top: 21px;
+    right: 5px;
+}
+
+.othermsg .msg-content {
+    background: skyblue;
+    border-radius: 5px;
+    margin-left: 41px;
+    text-align: left;
+    margin-right: 41px;
+}
+
+.othermsg .msg-content::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 34px;
+    right: 27px;
+    border: 10px;
+    border-style: solid;
+    border-color: skyblue transparent transparent skyblue;
+}

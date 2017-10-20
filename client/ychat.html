@@ -1,0 +1,49 @@
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="yChat node.js koa2 websocket">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <meta name="author" content="ghost">
+        <title>yChat</title>
+        <!-- <link rel="stylesheet/less" href="styles/less/yChat.less"> -->
+        <link rel="stylesheet" type="text/css" href="styles/yChat.css">
+        <style></style>
+    </head>
+    
+    <body>
+        <div id="contentWapper">
+            <div id="banner">
+                <h1>YChat</h1>
+                <span id="status">1 online</span>
+            </div>
+            <div id="history">
+            </div>
+            <div id="items">
+                <a id="clearBtn" type="button" value="clear" title="clear screen" class="button-like">clear</a>
+            </div>
+            <div id="controls">
+                <textarea id="messageInput" placeHolder="input message here..."></textarea>
+                <a id="sendBtn" type="button" value="SEND" class="button-like">SEND</a>
+            </div>
+        </div>
+        <div id="loginWapper" style="display:none">
+            <p id="tips">please input a name</p>
+            <div>
+                <input placeholder="input here" id="username">
+                <a type="button" value="OK" id="loginBtn" class="button-like">OK</a>
+            </div>
+        </div>
+    </body>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="scripts/yChat.js"></script>
+    <script>
+        window.onload = function () {
+            new YChat().init();
+        }
+    </script>
+    
+    </html>

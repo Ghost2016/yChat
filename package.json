@@ -1,0 +1,37 @@
+{
+  "name": "ychat",
+  "version": "1.0.0",
+  "description": "a chatroom app build with koa2 and socket.io",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Ghost2016/yChat.git"
+  },
+  "keywords": [
+    "koa2",
+    "ychat",
+    "socket.io",
+    "websocket"
+  ],
+  "author": "ghost",
+  "license": "ISC",
+  "engines": {
+    "node": "8.7.x",
+    "npm": "5.4.x"
+  },
+  "devDependencies": {
+    "koa": "^2.3.0",
+    "koa-route": "^3.2.0",
+    "koa-router": "^7.2.1",
+    "koa-socket": "^4.4.0",
+    "koa-static": "^4.0.1",
+    "socket.io": "^2.0.3"
+  },
+  "bugs": {
+    "url": "https://github.com/Ghost2016/yChat/issues"
+  },
+  "homepage": "https://github.com/Ghost2016/yChat#readme"
+}
