@@ -40,40 +40,36 @@
             this.socket.on('pm', function (user, msg, from) {
                 that._newMessage(user, msg, from);
             });
+            this._initEvent(this);
+        },
+        _initEvent: function (that) {
             //login btn
-            doc.getElementById('loginBtn').addEventListener('click', function () { that._login() });
-            /*控制键键码值(keyCode)
-            按键 键码  按键  键码  按键  键码  按键  键码
-            BackSpace  8   Esc 27  Right Arrow 39  -_  189
-            Tab    9   Spacebar    32  Dw Arrow    40  .>  190
-            Clear  12  Page Up 33  Insert  45  /?  191
-            Enter  13  Page Down   34  Delete  46  `~ 192
-            Shift  16  End 35  Num Lock    144 [{  219
-            Control    17  Home    36  ;:  186 \|  220
-            Alt    18  Left Arrow  37  =+  187 ]}  221
-            Cape Lock  20  Up Arrow    38  ,<  188 '"  222
-            * */
-            //通过“回车键”提交用户名
-            doc.getElementById('username').onkeydown = function (e) {
-                console.log(e);
-                e = e || event;
-                if (e.keyCode === 13) {
-                    that._login();
-                }
-            };
-            //通过“回车键”提交聊天内容
-            doc.getElementById('messageInput').onkeydown = function (e) {
-                e = e || event;
-                if (e.keyCode === 13 && e.shiftKey) {
-                    that._sendMessage();
-                }
-            };
+            doc.getElementById('loginBtn').addEventListener('click', function () {
+                that._login()
+            });
             //send btn
-            doc.getElementById('sendBtn').addEventListener('click', function () { that._sendMessage() }, true);
+            doc.getElementById('sendBtn').addEventListener('click', function () {
+                that._sendMessage()
+            });
             //clear btn
             doc.getElementById('clearBtn').addEventListener('click', function () {
                 doc.getElementById('history').innerHTML = '';
             })
+            doc.getElementById('username').onkeydown = function (e) {
+                e = e || event;
+                //press enter to submit username
+                if (e.keyCode === 13) {
+                    that._login();
+                }
+            };
+            doc.getElementById('messageInput').onkeydown = function (e) {
+                e = e || event;
+                //press shift + enter to send msg
+                if (e.keyCode === 13 && e.shiftKey) {
+                    that._sendMessage();
+                }
+            };
+
         },
         _newMessage: function (username, msg, target) {
             target = target ? target : 'all';
@@ -99,6 +95,7 @@
                     </div>'
             }
             history.innerHTML += str;
+            //scroll to newest content
             history.scrollTop = history.scrollHeight;
         },
         _sendMessage: function () {

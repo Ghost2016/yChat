@@ -9,13 +9,11 @@ var Koa = require('koa'),
     //use for saving online user
     users = [],
     //use for saving socket for the specifical user
-    userSockets = {};
-
-const main = ctx => {
-    ctx.response.body = fs.readFileSync(__dirname + '/client/yChat.html');
-    ctx.response.type = 'text/html'
-};
-
+    userSockets = {},
+    main = ctx => {
+        ctx.response.body = fs.readFileSync(__dirname + '/client/yChat.html');
+        ctx.response.type = 'text/html'
+    };
 app.use(route.get('/', main));
 app.use(koaStatic(__dirname + "/client"));
 server.listen(process.env.PORT || 3000, function () {
