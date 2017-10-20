@@ -7,8 +7,9 @@ var Koa = require('koa'),
     koaStatic = require('koa-static'),
     route = require('koa-route'),
     //use for saving online user
-    users = []
-    ;
+    users = [],
+    //use for saving socket for the specifical user
+    userSockets = {};
 
 const main = ctx => {
     ctx.response.body = fs.readFileSync(__dirname + '/client/yChat.html');
@@ -29,17 +30,27 @@ io.sockets.on('connection', socket => {
         }
         socket.username = username;
         users.push(username);
-        socket.emit('loginSucceed', username);
-        io.sockets.emit('system', 'login', username, users.length);
+        userSockets[username] = socket;
+        socket.emit('loginSucceed', username, users);
+        socket.broadcast.emit('system', 'login', username, users);
     });
     socket.on('disconnect', () => {
         console.log('disconnect...');
+        userSockets[socket.username] = null;
+        delete userSockets[socket.username];
         users.splice(users.indexOf(socket.username), 1);
         // everyone gets it but the sender by using socket.broadcast
-        socket.broadcast.emit('system', 'logout', socket.username, users.length);
+        socket.broadcast.emit('system', 'logout', socket.username, users);
     });
-    socket.on('message', (username, msg) => {
+    socket.on('message', (username, msg, to) => {
         console.log(msg);
-        socket.broadcast.emit('message', username, msg);
-    })
+        to = to ? to : 'all';
+        if (to === 'all') {
+            socket.broadcast.emit('message', username, msg);
+            return;
+        } else {
+            //private message
+            userSockets[to].emit('pm', username, msg, to)
+        }
+    });
 });

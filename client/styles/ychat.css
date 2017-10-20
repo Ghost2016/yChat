@@ -145,6 +145,7 @@ input[type="button"] {
 }
 
 #loginWapper {
+    z-index: 1;
     background: skyblue;
     background-size: contain;
     position: fixed;
@@ -170,6 +171,10 @@ input[type="button"] {
 .button-like:hover {
     color: #09f;
     background: #fff;
+}
+
+#select {
+    width: 20%;
 }
 
 #loginWapper>div {
@@ -221,7 +226,8 @@ input[type="button"] {
 
 #history {
     flex: 1;
-    border: 1px solid gray;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -253,7 +259,6 @@ input[type="button"] {
 
 #controls {
     display: flex;
-    height: 30%;
 }
 
 #messageInput {
@@ -267,7 +272,6 @@ input[type="button"] {
 }
 
 #clearBtn {
-    margin: 5px 10px;
     padding: 5px 15px;
 }
 
